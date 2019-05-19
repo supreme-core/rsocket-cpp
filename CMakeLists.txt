@@ -2,6 +2,21 @@ cmake_minimum_required(VERSION 3.2)
 
 # ------------- SCAPIX Hunter dependency ----------------
 
+# set the PROJECT_ROOT to folder path where makefile is located
+set(PROJECT_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
+
+# Get a specific component of a full filename "PROJECT_ROOT"
+get_filename_component(PROJECT_ROOT ${PROJECT_ROOT} ABSOLUTE)
+
+
+# set SCAPIX_ROOT to the parent directory of project root
+set(SCAPIX_ROOT ${PROJECT_ROOT}/../scapix CACHE STRING "scapix lib path")
+
+
+# Get a specific component of a "SCAPIX_ROOT"
+get_filename_component(SCAPIX_ROOT ${SCAPIX_ROOT} ABSOLUTE)
+
+
 # creates a '.hunter' directory inside build dir
 if("$ENV{HUNTER_ROOT}" STREQUAL "")
   set(HUNTER_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/build/.hunter")
@@ -30,25 +45,15 @@ set(CMAKE_MODULE_PATH
 )
 
 
+
+
+
 # ----------- SCAPIX --------
-
-# set the PROJECT_ROOT to folder path where makefile is located
-set(PROJECT_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
-
-# Get a specific component of a full filename "PROJECT_ROOT"
-get_filename_component(PROJECT_ROOT ${PROJECT_ROOT} ABSOLUTE)
-
-
-# set SCAPIX_ROOT to the parent directory of project root
-set(SCAPIX_ROOT ${PROJECT_ROOT}/../scapix CACHE STRING "scapix lib path")
-
-
-# Get a specific component of a "SCAPIX_ROOT"
-get_filename_component(SCAPIX_ROOT ${SCAPIX_ROOT} ABSOLUTE)
-
 
 set(SCAPIX_BRIDGE "python" CACHE STRING "cpp, java, objc, python")
 set(SCAPIX_PLATFORM "linux" CACHE STRING "one of the folders inside 'source/badr/platform': ios, android, macos, windows, linux, etc.")
+
+add_subdirectory(${SCAPIX_ROOT}/cmake ${PROJECT_BINARY_DIR}/scapix)
 
 include(${SCAPIX_ROOT}/cmake/modules/scapix.cmake)
 
@@ -492,7 +497,7 @@ add_library(
   ${platform_sources}
   ${LIBRARY_TYPE})
 
-# @@ scapix
+# -------------------- @@ scapix
 source_group(TREE ${PROJECT_ROOT}/ PREFIX "source" FILES ${RSocket_Sources} ${platform_sources})
 set_target_properties(ReactiveSocket PROPERTIES
         CXX_STANDARD 17
@@ -502,21 +507,93 @@ set_target_properties(ReactiveSocket PROPERTIES
 set(Boost_USE_STATIC_LIBS ON)
 hunter_add_package(Boost)
 find_package(Boost REQUIRED)
-target_include_directories(ReactiveSocket PUBLIC ${Boost_INCLUDE_DIRS})
+# ------------------------
 
-
-
+# @@ scapix - add ${Boost_INCLUDE_DIRS}
 target_include_directories(
     ReactiveSocket
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
         $<INSTALL_INTERFACE:include>
+        ${Boost_INCLUDE_DIRS}
 )
-
 
 target_link_libraries(ReactiveSocket
     PUBLIC yarpl glog::glog gflags
     INTERFACE ${EXTRA_LINK_FLAGS})
+
+
+scapix_bridge_headers(
+        ReactiveSocket
+        ""
+        "${PROJECT_ROOT}/source/badr/contact.h"
+        "${PROJECT_ROOT}/source/badr/model.h"
+        "${PROJECT_ROOT}/source/badr/session.h"
+        "${PROJECT_ROOT}/rsocket/ColdResumeHandler.h"
+        "${PROJECT_ROOT}/rsocket/ConnectionAcceptor.h"
+        "${PROJECT_ROOT}/rsocket/ConnectionFactory.h"
+        "${PROJECT_ROOT}/rsocket/DuplexConnection.h"
+        "${PROJECT_ROOT}/rsocket/Payload.h"
+        "${PROJECT_ROOT}/rsocket/RSocket.h"
+        "${PROJECT_ROOT}/rsocket/RSocketClient.h"
+        "${PROJECT_ROOT}/rsocket/RSocketErrors.h"
+        "${PROJECT_ROOT}/rsocket/RSocketException.h"
+        "${PROJECT_ROOT}/rsocket/RSocketParameters.h"
+        "${PROJECT_ROOT}/rsocket/RSocketRequester.h"
+        "${PROJECT_ROOT}/rsocket/RSocketResponder.h"
+        "${PROJECT_ROOT}/rsocket/RSocketServer.h"
+        "${PROJECT_ROOT}/rsocket/RSocketServerState.h"
+        "${PROJECT_ROOT}/rsocket/RSocketServiceHandler.h"
+        "${PROJECT_ROOT}/rsocket/RSocketStats.h"
+        "${PROJECT_ROOT}/rsocket/ResumeManager.h"
+        "${PROJECT_ROOT}/rsocket/framing/ErrorCode.h"
+        "${PROJECT_ROOT}/rsocket/framing/Frame.h"
+        "${PROJECT_ROOT}/rsocket/framing/FrameFlags.h"
+        "${PROJECT_ROOT}/rsocket/framing/FrameHeader.h"
+        "${PROJECT_ROOT}/rsocket/framing/FrameProcessor.h"
+        "${PROJECT_ROOT}/rsocket/framing/FrameSerializer.h"
+        "${PROJECT_ROOT}/rsocket/framing/FrameSerializer_v1_0.h"
+        "${PROJECT_ROOT}/rsocket/framing/FrameTransport.h"
+        "${PROJECT_ROOT}/rsocket/framing/FrameTransportImpl.h"
+        "${PROJECT_ROOT}/rsocket/framing/FrameType.h"
+        "${PROJECT_ROOT}/rsocket/framing/FramedDuplexConnection.h"
+        "${PROJECT_ROOT}/rsocket/framing/FramedReader.h"
+        "${PROJECT_ROOT}/rsocket/framing/ProtocolVersion.h"
+        "${PROJECT_ROOT}/rsocket/framing/ResumeIdentificationToken.h"
+        "${PROJECT_ROOT}/rsocket/framing/ScheduledFrameProcessor.h"
+        "${PROJECT_ROOT}/rsocket/framing/ScheduledFrameTransport.h"
+        "${PROJECT_ROOT}/rsocket/internal/ClientResumeStatusCallback.h"
+        "${PROJECT_ROOT}/rsocket/internal/Common.h"
+        "${PROJECT_ROOT}/rsocket/internal/ConnectionSet.h"
+        "${PROJECT_ROOT}/rsocket/internal/KeepaliveTimer.h"
+        "${PROJECT_ROOT}/rsocket/internal/ScheduledRSocketResponder.h"
+        "${PROJECT_ROOT}/rsocket/internal/ScheduledSingleObserver.h"
+        "${PROJECT_ROOT}/rsocket/internal/ScheduledSingleSubscription.h"
+        "${PROJECT_ROOT}/rsocket/internal/ScheduledSubscriber.h"
+        "${PROJECT_ROOT}/rsocket/internal/ScheduledSubscription.h"
+        "${PROJECT_ROOT}/rsocket/internal/SetupResumeAcceptor.h"
+        "${PROJECT_ROOT}/rsocket/internal/SwappableEventBase.h"
+        "${PROJECT_ROOT}/rsocket/internal/WarmResumeManager.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/ChannelRequester.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/ChannelResponder.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/ConsumerBase.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/FireAndForgetResponder.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/PublisherBase.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/RSocketStateMachine.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/RequestResponseRequester.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/RequestResponseResponder.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/StreamRequester.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/StreamResponder.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/StreamStateMachineBase.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/StreamFragmentAccumulator.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/StreamsWriter.h"
+        "${PROJECT_ROOT}/rsocket/transports/tcp/TcpConnectionAcceptor.h"
+        "${PROJECT_ROOT}/rsocket/transports/tcp/TcpConnectionFactory.h"
+        "${PROJECT_ROOT}/rsocket/transports/tcp/TcpDuplexConnection.h"
+)
+
+
+
 
 target_compile_options(
   ReactiveSocket
