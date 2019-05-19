@@ -17,6 +17,8 @@
 #include <folly/io/IOBufQueue.h>
 #include "rsocket/framing/ProtocolVersion.h"
 #include "rsocket/internal/Common.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

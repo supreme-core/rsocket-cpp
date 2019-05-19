@@ -23,6 +23,8 @@
 #include "rsocket/RSocketServerState.h"
 #include "rsocket/RSocketStats.h"
 #include "rsocket/internal/Common.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

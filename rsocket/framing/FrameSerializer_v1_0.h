@@ -15,6 +15,8 @@
 #pragma once
 
 #include "rsocket/framing/FrameSerializer.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

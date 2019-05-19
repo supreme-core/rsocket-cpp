@@ -18,6 +18,8 @@
 
 #include "rsocket/DuplexConnection.h"
 #include "rsocket/framing/FrameProcessor.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

@@ -18,6 +18,7 @@
 #include <folly/futures/Future.h>
 #include "rsocket/DuplexConnection.h"
 #include "rsocket/framing/ProtocolVersion.h"
+#include <scapix/bridge/object.h>
 
 namespace folly {
 class EventBase;

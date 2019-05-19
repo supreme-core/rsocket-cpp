@@ -15,6 +15,8 @@
 #pragma once
 
 #include "rsocket/RSocketRequester.h"
+#include <scapix/bridge/object.h>
+
 
 namespace folly {
 class EventBase;

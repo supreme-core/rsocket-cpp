@@ -15,6 +15,8 @@
 #pragma once
 
 #include "yarpl/single/SingleSubscription.h"
+#include <scapix/bridge/object.h>
+
 
 namespace folly {
 class EventBase;

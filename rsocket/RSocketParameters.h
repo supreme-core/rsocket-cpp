@@ -21,6 +21,8 @@
 
 #include "rsocket/Payload.h"
 #include "rsocket/framing/Frame.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

@@ -28,6 +28,8 @@
 #include "rsocket/framing/FrameType.h"
 #include "rsocket/framing/ProtocolVersion.h"
 #include "rsocket/framing/ResumeIdentificationToken.h"
+#include <scapix/bridge/object.h>
+
 
 namespace folly {
 template <typename V>

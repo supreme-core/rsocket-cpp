@@ -16,6 +16,8 @@
 
 #include <stdexcept>
 #include <string>
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

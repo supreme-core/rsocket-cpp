@@ -17,6 +17,8 @@
 #include <folly/io/async/EventBase.h>
 
 #include "rsocket/framing/FrameProcessor.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

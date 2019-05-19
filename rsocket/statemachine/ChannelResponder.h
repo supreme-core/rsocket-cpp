@@ -17,6 +17,8 @@
 #include "rsocket/statemachine/ConsumerBase.h"
 #include "rsocket/statemachine/PublisherBase.h"
 #include "yarpl/flowable/Subscriber.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

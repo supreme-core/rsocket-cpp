@@ -18,6 +18,8 @@
 #include <iosfwd>
 
 #include <folly/Range.h>
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

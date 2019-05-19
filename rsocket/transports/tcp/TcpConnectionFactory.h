@@ -19,6 +19,8 @@
 
 #include "rsocket/ConnectionFactory.h"
 #include "rsocket/DuplexConnection.h"
+#include <scapix/bridge/object.h>
+
 
 namespace folly {
 

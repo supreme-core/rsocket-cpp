@@ -17,6 +17,8 @@
 #include <folly/io/async/EventBase.h>
 
 #include "yarpl/flowable/Subscription.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

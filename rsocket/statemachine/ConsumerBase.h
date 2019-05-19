@@ -19,6 +19,8 @@
 #include "rsocket/statemachine/StreamStateMachineBase.h"
 #include "yarpl/flowable/Subscriber.h"
 #include "yarpl/flowable/Subscription.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

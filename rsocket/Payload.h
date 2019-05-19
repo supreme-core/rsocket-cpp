@@ -17,6 +17,8 @@
 #include <folly/io/IOBuf.h>
 #include <memory>
 #include <string>
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

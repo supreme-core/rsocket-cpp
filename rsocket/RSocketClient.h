@@ -25,6 +25,8 @@
 #include "rsocket/RSocketResponder.h"
 #include "rsocket/RSocketStats.h"
 #include "rsocket/ResumeManager.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

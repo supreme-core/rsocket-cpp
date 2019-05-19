@@ -16,6 +16,8 @@
 
 #include "rsocket/internal/Allowance.h"
 #include "yarpl/flowable/Subscription.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

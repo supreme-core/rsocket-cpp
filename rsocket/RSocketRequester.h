@@ -21,6 +21,8 @@
 
 #include "rsocket/Payload.h"
 #include "rsocket/statemachine/RSocketStateMachine.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

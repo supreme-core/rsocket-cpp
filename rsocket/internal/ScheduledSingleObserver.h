@@ -19,6 +19,8 @@
 #include "rsocket/internal/ScheduledSingleSubscription.h"
 #include "yarpl/single/SingleObserver.h"
 #include "yarpl/single/Singles.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

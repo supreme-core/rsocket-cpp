@@ -16,6 +16,8 @@
 
 #include "rsocket/RSocketClient.h"
 #include "rsocket/RSocketServer.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

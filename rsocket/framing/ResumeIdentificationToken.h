@@ -18,6 +18,8 @@
 #include <iosfwd>
 #include <string>
 #include <vector>
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

@@ -16,6 +16,8 @@
 
 #include <cstdint>
 #include <iosfwd>
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 enum class FrameFlags : uint16_t {

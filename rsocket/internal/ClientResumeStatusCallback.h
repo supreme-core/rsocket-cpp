@@ -17,6 +17,8 @@
 #include <folly/ExceptionWrapper.h>
 
 #include "rsocket/RSocketException.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 class ClientResumeStatusCallback {

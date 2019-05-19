@@ -21,6 +21,8 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+#include <scapix/bridge/object.h>
+
 
 //
 // this file includes all PUBLIC common types.

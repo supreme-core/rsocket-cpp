@@ -18,6 +18,8 @@
 #include <folly/io/async/ScopedEventBaseThread.h>
 
 #include "rsocket/ConnectionAcceptor.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

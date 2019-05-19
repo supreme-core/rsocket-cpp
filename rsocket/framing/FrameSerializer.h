@@ -19,6 +19,8 @@
 #include <memory>
 
 #include "rsocket/framing/Frame.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

@@ -17,6 +17,8 @@
 #include <cassert>
 #include <cstddef>
 #include <limits>
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

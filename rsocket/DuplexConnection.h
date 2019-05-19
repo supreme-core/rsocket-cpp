@@ -19,6 +19,8 @@
 #include <folly/io/IOBuf.h>
 
 #include "yarpl/flowable/Subscriber.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

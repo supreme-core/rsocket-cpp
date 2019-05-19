@@ -20,6 +20,8 @@
 #include "yarpl/flowable/Subscription.h"
 
 #include "rsocket/framing/FrameTransport.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

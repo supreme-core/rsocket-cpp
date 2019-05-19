@@ -15,6 +15,8 @@
 #pragma once
 
 #include "rsocket/statemachine/ConsumerBase.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

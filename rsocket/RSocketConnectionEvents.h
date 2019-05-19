@@ -13,6 +13,8 @@
 // limitations under the License.
 
 #pragma once
+#include <scapix/bridge/object.h>
+
 
 namespace folly {
 class exception_wrapper;

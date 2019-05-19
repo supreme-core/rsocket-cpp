@@ -22,6 +22,8 @@
 #include <unordered_map>
 
 #include "rsocket/statemachine/RSocketStateMachine.h"
+#include <scapix/bridge/object.h>
+
 
 namespace folly {
 class EventBase;

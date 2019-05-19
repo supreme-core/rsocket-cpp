@@ -32,6 +32,8 @@
 #include "yarpl/flowable/Subscriber.h"
 #include "yarpl/flowable/Subscription.h"
 #include "yarpl/single/SingleObserver.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

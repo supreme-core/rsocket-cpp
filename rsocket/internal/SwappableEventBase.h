@@ -17,6 +17,8 @@
 #include <folly/Function.h>
 #include <folly/io/async/EventBase.h>
 #include <mutex>
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

@@ -23,6 +23,8 @@
 #include "rsocket/DuplexConnection.h"
 #include "rsocket/RSocketParameters.h"
 #include "yarpl/Refcounted.h"
+#include <scapix/bridge/object.h>
+
 
 namespace folly {
 class EventBase;

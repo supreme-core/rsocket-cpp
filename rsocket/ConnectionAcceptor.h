@@ -17,6 +17,8 @@
 #include <folly/Optional.h>
 
 #include "rsocket/DuplexConnection.h"
+#include <scapix/bridge/object.h>
+
 
 namespace folly {
 class EventBase;

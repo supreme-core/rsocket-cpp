@@ -21,6 +21,7 @@
 #include "rsocket/DuplexConnection.h"
 #include "rsocket/RSocketStats.h"
 #include "yarpl/flowable/Subscriber.h"
+#include <scapix/bridge/object.h>
 
 namespace rsocket {
 

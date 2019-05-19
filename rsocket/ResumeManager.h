@@ -18,6 +18,8 @@
 #include <unordered_map>
 #include "rsocket/framing/Frame.h"
 #include "rsocket/framing/FrameTransportImpl.h"
+#include <scapix/bridge/object.h>
+
 
 namespace folly {
 class IOBuf;

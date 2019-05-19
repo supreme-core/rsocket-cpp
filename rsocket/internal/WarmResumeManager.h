@@ -17,6 +17,8 @@
 #include <deque>
 #include "rsocket/RSocketStats.h"
 #include "rsocket/ResumeManager.h"
+#include <scapix/bridge/object.h>
+
 
 namespace folly {
 class IOBuf;

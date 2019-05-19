@@ -18,6 +18,8 @@
 #include "rsocket/statemachine/StreamStateMachineBase.h"
 #include "yarpl/single/SingleObserver.h"
 #include "yarpl/single/SingleSubscription.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

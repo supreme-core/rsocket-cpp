@@ -16,6 +16,8 @@
 
 #include <folly/ExceptionWrapper.h>
 #include <folly/io/IOBuf.h>
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

@@ -15,6 +15,8 @@
 #pragma once
 
 #include <string>
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

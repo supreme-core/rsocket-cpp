@@ -18,6 +18,8 @@
 #include "rsocket/framing/FrameHeader.h"
 #include "yarpl/Flowable.h"
 #include "yarpl/Single.h"
+#include <scapix/bridge/object.h>
+
 
 namespace rsocket {
 

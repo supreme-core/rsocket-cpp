@@ -21,6 +21,8 @@
 #include "rsocket/statemachine/StreamFragmentAccumulator.h"
 #include "yarpl/Flowable.h"
 #include "yarpl/Single.h"
+#include <scapix/bridge/object.h>
+
 
 namespace folly {
 class IOBuf;
