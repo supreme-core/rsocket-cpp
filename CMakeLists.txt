@@ -1,5 +1,22 @@
 cmake_minimum_required(VERSION 3.2)
 
+# ------------- SCAPIX Hunter dependency ----------------
+
+# creates a '.hunter' directory inside build dir
+if("$ENV{HUNTER_ROOT}" STREQUAL "")
+  set(HUNTER_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/build/.hunter")
+endif()
+
+include("${SCAPIX_ROOT}/cmake/modules/HunterGate.cmake")
+
+# need it for scapix
+HunterGate(
+        URL "https://github.com/ruslo/hunter/archive/v0.23.165.tar.gz"
+        SHA1 "5a73f91df5f6109c0bb1104d0c0ee423f7bece79"
+)
+
+# -------- end of SCAPIX Hunter ---------
+
 project(ReactiveSocket)
 
 # CMake modules.
@@ -11,6 +28,51 @@ set(CMAKE_MODULE_PATH
   "${CMAKE_CURRENT_SOURCE_DIR}/build/fbcode_builder/CMake"
   ${CMAKE_MODULE_PATH}
 )
+
+
+# ----------- SCAPIX --------
+
+# set the PROJECT_ROOT to folder path where makefile is located
+set(PROJECT_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
+
+# Get a specific component of a full filename "PROJECT_ROOT"
+get_filename_component(PROJECT_ROOT ${PROJECT_ROOT} ABSOLUTE)
+
+
+# set SCAPIX_ROOT to the parent directory of project root
+set(SCAPIX_ROOT ${PROJECT_ROOT}/../scapix CACHE STRING "scapix lib path")
+
+
+# Get a specific component of a "SCAPIX_ROOT"
+get_filename_component(SCAPIX_ROOT ${SCAPIX_ROOT} ABSOLUTE)
+
+
+set(SCAPIX_BRIDGE "python" CACHE STRING "cpp, java, objc, python")
+set(SCAPIX_PLATFORM "linux" CACHE STRING "one of the folders inside 'source/badr/platform': ios, android, macos, windows, linux, etc.")
+
+include(${SCAPIX_ROOT}/cmake/modules/scapix.cmake)
+
+
+file(GLOB_RECURSE platforms_sources CONFIGURE_DEPENDS
+        ${PROJECT_ROOT}/platform/*.*
+        )
+
+# removes items from the list "platforms_sources" that maches the pattern
+list(FILTER platforms_sources EXCLUDE REGEX "${PROJECT_ROOT}/platform/${SCAPIX_PLATFORM}/*")
+
+set_source_files_properties(${platforms_sources} PROPERTIES HEADER_FILE_ONLY TRUE)
+
+
+file(GLOB_RECURSE platform_sources CONFIGURE_DEPENDS
+        ${PROJECT_ROOT}/platform/${SCAPIX_PLATFORM}/*.*
+        )
+
+if(${SCAPIX_BRIDGE} STREQUAL java OR ${SCAPIX_BRIDGE} STREQUAL python)
+  set(LIBRARY_TYPE MODULE)
+endif()
+
+# ----------end of scapix ----------------
+
 
 # Joins arguments and stores the result in ${var}.
 function(join var)
@@ -200,6 +262,121 @@ include_directories(SYSTEM ${GFLAGS_INCLUDE_DIR})
 
 add_subdirectory(yarpl)
 
+
+# @@ SCAPIX
+set(RSocket_Sources
+    rsocket/ColdResumeHandler.cpp
+    rsocket/ColdResumeHandler.h
+    rsocket/ConnectionAcceptor.h
+    rsocket/ConnectionFactory.h
+    rsocket/DuplexConnection.h
+    rsocket/Payload.cpp
+    rsocket/Payload.h
+    rsocket/RSocket.cpp
+    rsocket/RSocket.h
+    rsocket/RSocketClient.cpp
+    rsocket/RSocketClient.h
+    rsocket/RSocketErrors.h
+    rsocket/RSocketException.h
+    rsocket/RSocketParameters.cpp
+    rsocket/RSocketParameters.h
+    rsocket/RSocketRequester.cpp
+    rsocket/RSocketRequester.h
+    rsocket/RSocketResponder.cpp
+    rsocket/RSocketResponder.h
+    rsocket/RSocketServer.cpp
+    rsocket/RSocketServer.h
+    rsocket/RSocketServerState.h
+    rsocket/RSocketServiceHandler.cpp
+    rsocket/RSocketServiceHandler.h
+    rsocket/RSocketStats.cpp
+    rsocket/RSocketStats.h
+    rsocket/ResumeManager.h
+    rsocket/framing/ErrorCode.cpp
+    rsocket/framing/ErrorCode.h
+    rsocket/framing/Frame.cpp
+    rsocket/framing/Frame.h
+    rsocket/framing/FrameFlags.cpp
+    rsocket/framing/FrameFlags.h
+    rsocket/framing/FrameHeader.cpp
+    rsocket/framing/FrameHeader.h
+    rsocket/framing/FrameProcessor.h
+    rsocket/framing/FrameSerializer.cpp
+    rsocket/framing/FrameSerializer.h
+    rsocket/framing/FrameSerializer_v1_0.cpp
+    rsocket/framing/FrameSerializer_v1_0.h
+    rsocket/framing/FrameTransport.h
+    rsocket/framing/FrameTransportImpl.cpp
+    rsocket/framing/FrameTransportImpl.h
+    rsocket/framing/FrameType.cpp
+    rsocket/framing/FrameType.h
+    rsocket/framing/FramedDuplexConnection.cpp
+    rsocket/framing/FramedDuplexConnection.h
+    rsocket/framing/FramedReader.cpp
+    rsocket/framing/FramedReader.h
+    rsocket/framing/ProtocolVersion.cpp
+    rsocket/framing/ProtocolVersion.h
+    rsocket/framing/ResumeIdentificationToken.cpp
+    rsocket/framing/ResumeIdentificationToken.h
+    rsocket/framing/ScheduledFrameProcessor.cpp
+    rsocket/framing/ScheduledFrameProcessor.h
+    rsocket/framing/ScheduledFrameTransport.cpp
+    rsocket/framing/ScheduledFrameTransport.h
+    rsocket/internal/ClientResumeStatusCallback.h
+    rsocket/internal/Common.cpp
+    rsocket/internal/Common.h
+    rsocket/internal/ConnectionSet.cpp
+    rsocket/internal/ConnectionSet.h
+    rsocket/internal/KeepaliveTimer.cpp
+    rsocket/internal/KeepaliveTimer.h
+    rsocket/internal/ScheduledRSocketResponder.cpp
+    rsocket/internal/ScheduledRSocketResponder.h
+    rsocket/internal/ScheduledSingleObserver.h
+    rsocket/internal/ScheduledSingleSubscription.cpp
+    rsocket/internal/ScheduledSingleSubscription.h
+    rsocket/internal/ScheduledSubscriber.h
+    rsocket/internal/ScheduledSubscription.cpp
+    rsocket/internal/ScheduledSubscription.h
+    rsocket/internal/SetupResumeAcceptor.cpp
+    rsocket/internal/SetupResumeAcceptor.h
+    rsocket/internal/SwappableEventBase.cpp
+    rsocket/internal/SwappableEventBase.h
+    rsocket/internal/WarmResumeManager.cpp
+    rsocket/internal/WarmResumeManager.h
+    rsocket/statemachine/ChannelRequester.cpp
+    rsocket/statemachine/ChannelRequester.h
+    rsocket/statemachine/ChannelResponder.cpp
+    rsocket/statemachine/ChannelResponder.h
+    rsocket/statemachine/ConsumerBase.cpp
+    rsocket/statemachine/ConsumerBase.h
+    rsocket/statemachine/FireAndForgetResponder.cpp
+    rsocket/statemachine/FireAndForgetResponder.h
+    rsocket/statemachine/PublisherBase.cpp
+    rsocket/statemachine/PublisherBase.h
+    rsocket/statemachine/RSocketStateMachine.cpp
+    rsocket/statemachine/RSocketStateMachine.h
+    rsocket/statemachine/RequestResponseRequester.cpp
+    rsocket/statemachine/RequestResponseRequester.h
+    rsocket/statemachine/RequestResponseResponder.cpp
+    rsocket/statemachine/RequestResponseResponder.h
+    rsocket/statemachine/StreamRequester.cpp
+    rsocket/statemachine/StreamRequester.h
+    rsocket/statemachine/StreamResponder.cpp
+    rsocket/statemachine/StreamResponder.h
+    rsocket/statemachine/StreamStateMachineBase.cpp
+    rsocket/statemachine/StreamStateMachineBase.h
+    rsocket/statemachine/StreamFragmentAccumulator.cpp
+    rsocket/statemachine/StreamFragmentAccumulator.h
+    rsocket/statemachine/StreamsWriter.h
+    rsocket/statemachine/StreamsWriter.cpp
+    rsocket/transports/tcp/TcpConnectionAcceptor.cpp
+    rsocket/transports/tcp/TcpConnectionAcceptor.h
+    rsocket/transports/tcp/TcpConnectionFactory.cpp
+    rsocket/transports/tcp/TcpConnectionFactory.h
+    rsocket/transports/tcp/TcpDuplexConnection.cpp
+    rsocket/transports/tcp/TcpDuplexConnection.h)
+
+# @@ SCAPIX - add ${platform_soures}, ${LIBRARY_TYPE} at the end
 add_library(
   ReactiveSocket
   rsocket/ColdResumeHandler.cpp
@@ -311,7 +488,23 @@ add_library(
   rsocket/transports/tcp/TcpConnectionFactory.cpp
   rsocket/transports/tcp/TcpConnectionFactory.h
   rsocket/transports/tcp/TcpDuplexConnection.cpp
-  rsocket/transports/tcp/TcpDuplexConnection.h)
+  rsocket/transports/tcp/TcpDuplexConnection.h
+  ${platform_sources}
+  ${LIBRARY_TYPE})
+
+# @@ scapix
+source_group(TREE ${PROJECT_ROOT}/ PREFIX "source" FILES ${RSocket_Sources} ${platform_sources})
+set_target_properties(ReactiveSocket PROPERTIES
+        CXX_STANDARD 17
+        CXX_STANDARD_REQUIRED ON
+        CXX_EXTENSIONS ON # not required, but speeds up compilation of SCAPIX_META_STRING with clang and gcc
+        )
+set(Boost_USE_STATIC_LIBS ON)
+hunter_add_package(Boost)
+find_package(Boost REQUIRED)
+target_include_directories(ReactiveSocket PUBLIC ${Boost_INCLUDE_DIRS})
+
+
 
 target_include_directories(
     ReactiveSocket
