@@ -11,6 +11,12 @@ C++ implementation of [RSocket](https://rsocket.io)
 
 # Dependencies
 
+Install Scapix
+https://github.com/scapix-com/scapix
+
+Requires cmake,  g++5, gcc5 and not gcc7
+
+
 Install `folly`:
 
 ```
