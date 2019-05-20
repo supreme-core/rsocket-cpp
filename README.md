@@ -1,5 +1,6 @@
 # rsocket-cpp
 
+Fork off rsocket-cpp for the purpose of creating c++ to python binding using scapix
 C++ implementation of [RSocket](https://rsocket.io)
 
 <a href='https://travis-ci.org/rsocket/rsocket-cpp/builds'><img src='https://travis-ci.org/rsocket/rsocket-cpp.svg?branch=master'></a>
