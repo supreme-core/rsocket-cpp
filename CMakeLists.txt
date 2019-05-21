@@ -22,7 +22,7 @@ if("$ENV{HUNTER_ROOT}" STREQUAL "")
   set(HUNTER_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/build/.hunter")
 endif()
 
-include("${SCAPIX_ROOT}/cmake/modules/HunterGate.cmake")
+include("${SCAPIX_ROOT}/project/cmake/modules/HunterGate.cmake")
 
 # need it for scapix
 HunterGate(
@@ -55,7 +55,7 @@ set(SCAPIX_PLATFORM "linux" CACHE STRING "one of the folders inside 'source/badr
 
 add_subdirectory(${SCAPIX_ROOT}/cmake ${PROJECT_BINARY_DIR}/scapix)
 
-include(${SCAPIX_ROOT}/cmake/modules/scapix.cmake)
+include(${SCAPIX_ROOT}/project/cmake/modules/scapix.cmake)
 
 
 file(GLOB_RECURSE platforms_sources CONFIGURE_DEPENDS
