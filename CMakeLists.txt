@@ -525,10 +525,7 @@ target_link_libraries(ReactiveSocket
 
 scapix_bridge_headers(
         ReactiveSocket
-        ""
-        "${PROJECT_ROOT}/source/badr/contact.h"
-        "${PROJECT_ROOT}/source/badr/model.h"
-        "${PROJECT_ROOT}/source/badr/session.h"
+        "com.example.rsocket"
         "${PROJECT_ROOT}/rsocket/ColdResumeHandler.h"
         "${PROJECT_ROOT}/rsocket/ConnectionAcceptor.h"
         "${PROJECT_ROOT}/rsocket/ConnectionFactory.h"
