@@ -19,7 +19,7 @@ get_filename_component(SCAPIX_ROOT ${SCAPIX_ROOT} ABSOLUTE)
 
 # creates a '.hunter' directory inside build dir
 if("$ENV{HUNTER_ROOT}" STREQUAL "")
-  set(HUNTER_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/build/.hunter")
+  set(HUNTER_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/_build/.hunter")
 endif()
 
 include("${SCAPIX_ROOT}/project/cmake/modules/HunterGate.cmake")
