@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.2)
 # ------------- SCAPIX Hunter dependency ----------------
 
 # set the PROJECT_ROOT to folder path where makefile is located
-set(PROJECT_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
+set(PROJECT_ROOT ${CMAKE_SOURCE_DIR})
 
 # Get a specific component of a full filename "PROJECT_ROOT"
 get_filename_component(PROJECT_ROOT ${PROJECT_ROOT} ABSOLUTE)
@@ -19,7 +19,7 @@ get_filename_component(SCAPIX_ROOT ${SCAPIX_ROOT} ABSOLUTE)
 
 # creates a '.hunter' directory inside build dir
 if("$ENV{HUNTER_ROOT}" STREQUAL "")
-  set(HUNTER_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/_build/.hunter")
+  set(HUNTER_ROOT "${CMAKE_SOURCE_DIR}/_build/.hunter")
 endif()
 
 include("${SCAPIX_ROOT}/project/cmake/modules/HunterGate.cmake")
@@ -44,32 +44,27 @@ set(CMAKE_MODULE_PATH
   ${CMAKE_MODULE_PATH}
 )
 
-
-
-
-
 # ----------- SCAPIX --------
 
 set(SCAPIX_BRIDGE "python" CACHE STRING "cpp, java, objc, python")
-set(SCAPIX_PLATFORM "linux" CACHE STRING "one of the folders inside 'source/badr/platform': ios, android, macos, windows, linux, etc.")
+set(SCAPIX_PLATFORM "linux" CACHE STRING "one of the folders inside 'rsocket/platform': ios, android, macos, windows, linux, etc.")
 
-add_subdirectory(${SCAPIX_ROOT}/cmake ${PROJECT_BINARY_DIR}/scapix)
+add_subdirectory(${SCAPIX_ROOT}/project/cmake ${PROJECT_BINARY_DIR}/scapix)
 
 include(${SCAPIX_ROOT}/project/cmake/modules/scapix.cmake)
 
-
 file(GLOB_RECURSE platforms_sources CONFIGURE_DEPENDS
-        ${PROJECT_ROOT}/platform/*.*
+        ${PROJECT_ROOT}/rsocket/platform/*.*
         )
 
 # removes items from the list "platforms_sources" that maches the pattern
-list(FILTER platforms_sources EXCLUDE REGEX "${PROJECT_ROOT}/platform/${SCAPIX_PLATFORM}/*")
+list(FILTER platforms_sources EXCLUDE REGEX "${PROJECT_ROOT}/rsocket/platform/${SCAPIX_PLATFORM}/*")
 
 set_source_files_properties(${platforms_sources} PROPERTIES HEADER_FILE_ONLY TRUE)
 
 
 file(GLOB_RECURSE platform_sources CONFIGURE_DEPENDS
-        ${PROJECT_ROOT}/platform/${SCAPIX_PLATFORM}/*.*
+        ${PROJECT_ROOT}/rsocket/platform/${SCAPIX_PLATFORM}/*.*
         )
 
 if(${SCAPIX_BRIDGE} STREQUAL java OR ${SCAPIX_BRIDGE} STREQUAL python)
@@ -498,12 +493,18 @@ add_library(
   ${LIBRARY_TYPE})
 
 # -------------------- @@ scapix
-source_group(TREE ${PROJECT_ROOT}/ PREFIX "source" FILES ${RSocket_Sources} ${platform_sources})
+# https://github.com/ruslo/hunter/issues/542
+set_target_properties(ReactiveSocket PROPERTIES DEBUG_POSTFIX "")
+source_group(TREE ${PROJECT_ROOT}/rsocket PREFIX "source" FILES ${RSocket_Sources} ${platform_sources})
+
 set_target_properties(ReactiveSocket PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
         CXX_EXTENSIONS ON # not required, but speeds up compilation of SCAPIX_META_STRING with clang and gcc
         )
+
+target_include_directories(ReactiveSocket PUBLIC ${PROJECT_ROOT}/rsocket)
+
 set(Boost_USE_STATIC_LIBS ON)
 hunter_add_package(Boost)
 find_package(Boost REQUIRED)
@@ -525,7 +526,7 @@ target_link_libraries(ReactiveSocket
 
 scapix_bridge_headers(
         ReactiveSocket
-        "com.example.rsocket"
+        "com.scapix.ReactiveSocket"
         "${PROJECT_ROOT}/rsocket/ColdResumeHandler.h"
         "${PROJECT_ROOT}/rsocket/ConnectionAcceptor.h"
         "${PROJECT_ROOT}/rsocket/ConnectionFactory.h"

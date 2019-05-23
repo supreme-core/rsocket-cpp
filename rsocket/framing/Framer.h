@@ -29,7 +29,7 @@ namespace rsocket {
 /// Each rsocket frame is prepended with the frame length by
 /// prependSize method.
 ///
-class Framer {
+class Framer : public scapix::bridge::object<Framer> {
  public:
   Framer(ProtocolVersion protocolVersion, bool stripFrameLengthField)
       : protocolVersion_{protocolVersion},

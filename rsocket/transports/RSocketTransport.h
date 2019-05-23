@@ -17,7 +17,7 @@
 
 
 namespace rsocket {
-class RSocketTransportHandler {
+class RSocketTransportHandler : public scapix::bridge::object<RSocketTransportHandler> {
  public:
   virtual ~RSocketTransportHandler() = default;
 
@@ -42,7 +42,7 @@ class RSocketTransportHandler {
       bool flagsNext) = 0;
 };
 
-class RSocketTransport {
+class RSocketTransport : public scapix::bridge::object<RSocketTransport> {
  public:
   virtual ~RSocketTransport() = default;
 

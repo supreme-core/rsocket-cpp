@@ -20,7 +20,7 @@
 
 namespace rsocket {
 
-class StreamFragmentAccumulator {
+class StreamFragmentAccumulator : public scapix::bridge::object<StreamFragmentAccumulator> {
  public:
   StreamFragmentAccumulator();
 

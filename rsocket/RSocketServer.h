@@ -38,7 +38,7 @@ namespace rsocket {
  * ConnectionAcceptor.
  *
  */
-class RSocketServer {
+class RSocketServer : public scapix::bridge::object<RSocketServer> {
  public:
   explicit RSocketServer(
       std::unique_ptr<ConnectionAcceptor>,

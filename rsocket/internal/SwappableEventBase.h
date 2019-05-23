@@ -26,7 +26,7 @@ namespace rsocket {
 // an underlying EventBase to be changed, and to force callbacks to be
 // executed in serial order regardless of which underlying EventBase they are
 // enqueued on.
-class SwappableEventBase final {
+class SwappableEventBase final : public scapix::bridge::object<SwappableEventBase> {
   // std::mutex doesn't like being in a std::pair
   struct MutexBoolPair {
     // lock for synchronization on destroyed_, and all members of the parent SEB

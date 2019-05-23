@@ -23,7 +23,7 @@
 
 namespace rsocket {
 
-class ResumeIdentificationToken {
+class ResumeIdentificationToken : public scapix::bridge::object<ResumeIdentificationToken>  {
  public:
   /// Creates an empty token.
   ResumeIdentificationToken();

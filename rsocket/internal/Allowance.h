@@ -22,7 +22,7 @@
 
 namespace rsocket {
 
-class Allowance {
+class Allowance : public scapix::bridge::object<Allowance> {
  public:
   using ValueType = size_t;
 

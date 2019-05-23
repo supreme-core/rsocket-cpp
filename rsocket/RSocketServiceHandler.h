@@ -63,7 +63,7 @@ struct RSocketConnectionParams {
 // RSocketServiceHandler to the RSocketServer::acceptConnection() method. In
 // this case it does not have to worry about thread safety.
 //
-class RSocketServiceHandler {
+class RSocketServiceHandler : public scapix::bridge::object<RSocketServiceHandler> {
  public:
   RSocketServiceHandler() = default;
   virtual ~RSocketServiceHandler() = default;

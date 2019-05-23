@@ -37,7 +37,7 @@ enum class ResumeStatus { NEW_SESSION, RESUMING };
  * Built-in implementations can be found in rsocket/transports/, such as
  * rsocket/transports/TcpConnectionFactory.h
  */
-class ConnectionFactory {
+class ConnectionFactory : public scapix::bridge::object<ConnectionFactory> {
  public:
   ConnectionFactory() = default;
   virtual ~ConnectionFactory() = default;

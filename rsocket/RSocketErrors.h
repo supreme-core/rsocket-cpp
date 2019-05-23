@@ -25,7 +25,7 @@ namespace rsocket {
  * Error Codes from
  * https://github.com/ReactiveSocket/reactivesocket/blob/master/Protocol.md#error-codes
  */
-class RSocketError : public std::runtime_error {
+class RSocketError : public std::runtime_error, public scapix::bridge::object<RSocketError> {
  public:
   using std::runtime_error::runtime_error;
 

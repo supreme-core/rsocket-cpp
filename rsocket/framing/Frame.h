@@ -60,7 +60,7 @@ constexpr ResumePosition kUnspecifiedResumePosition = -1;
 /// stream, intermediate layers that are frame-type-agnostic pass around
 /// serialized frame.
 
-class Frame_REQUEST_N {
+class Frame_REQUEST_N : public scapix::bridge::object<Frame_REQUEST_N> {
  public:
   /*
    * Maximum value for ReactiveSocket Subscription::request.
@@ -83,7 +83,7 @@ class Frame_REQUEST_N {
 };
 std::ostream& operator<<(std::ostream&, const Frame_REQUEST_N&);
 
-class Frame_REQUEST_Base {
+class Frame_REQUEST_Base: public scapix::bridge::object<Frame_REQUEST_Base> {
  public:
   Frame_REQUEST_Base() = default;
   Frame_REQUEST_Base(
@@ -170,7 +170,7 @@ class Frame_REQUEST_CHANNEL : public Frame_REQUEST_Base {
 };
 std::ostream& operator<<(std::ostream&, const Frame_REQUEST_CHANNEL&);
 
-class Frame_REQUEST_RESPONSE {
+class Frame_REQUEST_RESPONSE : public scapix::bridge::object<Frame_REQUEST_RESPONSE> {
  public:
   constexpr static const FrameFlags AllowedFlags =
       FrameFlags::METADATA | FrameFlags::FOLLOWS;
@@ -190,7 +190,7 @@ class Frame_REQUEST_RESPONSE {
 };
 std::ostream& operator<<(std::ostream&, const Frame_REQUEST_RESPONSE&);
 
-class Frame_REQUEST_FNF {
+class Frame_REQUEST_FNF : public scapix::bridge::object<Frame_REQUEST_FNF> {
  public:
   constexpr static const FrameFlags AllowedFlags =
       FrameFlags::METADATA | FrameFlags::FOLLOWS;
@@ -210,7 +210,7 @@ class Frame_REQUEST_FNF {
 };
 std::ostream& operator<<(std::ostream&, const Frame_REQUEST_FNF&);
 
-class Frame_METADATA_PUSH {
+class Frame_METADATA_PUSH : public scapix::bridge::object<Frame_METADATA_PUSH> {
  public:
   Frame_METADATA_PUSH() {}
   explicit Frame_METADATA_PUSH(std::unique_ptr<folly::IOBuf> metadata)
@@ -224,7 +224,7 @@ class Frame_METADATA_PUSH {
 };
 std::ostream& operator<<(std::ostream&, const Frame_METADATA_PUSH&);
 
-class Frame_CANCEL {
+class Frame_CANCEL : public scapix::bridge::object<Frame_CANCEL>  {
  public:
   Frame_CANCEL() = default;
   explicit Frame_CANCEL(StreamId streamId)
@@ -234,7 +234,7 @@ class Frame_CANCEL {
 };
 std::ostream& operator<<(std::ostream&, const Frame_CANCEL&);
 
-class Frame_PAYLOAD {
+class Frame_PAYLOAD : public scapix::bridge::object<Frame_PAYLOAD> {
  public:
   constexpr static const FrameFlags AllowedFlags = FrameFlags::METADATA |
       FrameFlags::FOLLOWS | FrameFlags::COMPLETE | FrameFlags::NEXT;
@@ -256,7 +256,7 @@ class Frame_PAYLOAD {
 };
 std::ostream& operator<<(std::ostream&, const Frame_PAYLOAD&);
 
-class Frame_ERROR {
+class Frame_ERROR : public scapix::bridge::object<Frame_ERROR> {
  public:
   constexpr static const FrameFlags AllowedFlags = FrameFlags::METADATA;
 
@@ -291,7 +291,7 @@ class Frame_ERROR {
 };
 std::ostream& operator<<(std::ostream&, const Frame_ERROR&);
 
-class Frame_KEEPALIVE {
+class Frame_KEEPALIVE : public scapix::bridge::object<Frame_KEEPALIVE> {
  public:
   constexpr static const FrameFlags AllowedFlags =
       FrameFlags::KEEPALIVE_RESPOND;
@@ -313,7 +313,7 @@ std::ostream& operator<<(std::ostream&, const Frame_KEEPALIVE&);
 
 class SetupParameters;
 
-class Frame_SETUP {
+class Frame_SETUP : public scapix::bridge::object<Frame_SETUP> {
  public:
   constexpr static const FrameFlags AllowedFlags =
       FrameFlags::METADATA | FrameFlags::RESUME_ENABLE | FrameFlags::LEASE;
@@ -368,7 +368,7 @@ class Frame_SETUP {
 std::ostream& operator<<(std::ostream&, const Frame_SETUP&);
 /// @}
 
-class Frame_LEASE {
+class Frame_LEASE : public scapix::bridge::object<Frame_LEASE> {
  public:
   constexpr static const FrameFlags AllowedFlags = FrameFlags::METADATA;
   constexpr static const uint32_t kMaxTtl = std::numeric_limits<int32_t>::max();
@@ -401,7 +401,7 @@ class Frame_LEASE {
 std::ostream& operator<<(std::ostream&, const Frame_LEASE&);
 /// @}
 
-class Frame_RESUME {
+class Frame_RESUME : public scapix::bridge::object<Frame_RESUME> {
  public:
   Frame_RESUME() = default;
   Frame_RESUME(
@@ -426,7 +426,7 @@ class Frame_RESUME {
 std::ostream& operator<<(std::ostream&, const Frame_RESUME&);
 /// @}
 
-class Frame_RESUME_OK {
+class Frame_RESUME_OK : public scapix::bridge::object<Frame_RESUME_OK> {
  public:
   Frame_RESUME_OK() = default;
   explicit Frame_RESUME_OK(ResumePosition position)

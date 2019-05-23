@@ -37,7 +37,7 @@ struct Payload;
 ///
 /// The instances might be destroyed on a different thread than they were
 /// created.
-class StreamStateMachineBase {
+class StreamStateMachineBase : public scapix::bridge::object<StreamStateMachineBase> {
  public:
   StreamStateMachineBase(
       std::shared_ptr<StreamsWriter> writer,

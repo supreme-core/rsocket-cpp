@@ -24,7 +24,7 @@ class EventBase;
 
 namespace rsocket {
 
-class RSocketServerState {
+class RSocketServerState : public scapix::bridge::object<RSocketServerState> {
  public:
   void close() {
     eventBase_.runInEventBaseThread([sm = rSocketStateMachine_] {

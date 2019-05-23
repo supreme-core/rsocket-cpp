@@ -36,7 +36,7 @@ class RSocket;
  * API for connecting to an RSocket server. Created with RSocket class.
  * This connects using a transport from the provided ConnectionFactory.
  */
-class RSocketClient {
+class RSocketClient : public scapix::bridge::object<RSocketClient> {
  public:
   ~RSocketClient();
 

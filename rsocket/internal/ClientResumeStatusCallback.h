@@ -21,7 +21,7 @@
 
 
 namespace rsocket {
-class ClientResumeStatusCallback {
+class ClientResumeStatusCallback : public scapix::bridge::object<ClientResumeStatusCallback> {
  public:
   virtual ~ClientResumeStatusCallback() = default;
 

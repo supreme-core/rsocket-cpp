@@ -26,7 +26,7 @@ namespace rsocket {
 
 // This class has to be implemented by the client application for cold
 // resumption.  The default implementation will error/close the streams.
-class ColdResumeHandler {
+class ColdResumeHandler : public scapix::bridge::object<ColdResumeHandler> {
  public:
   virtual ~ColdResumeHandler() = default;
 

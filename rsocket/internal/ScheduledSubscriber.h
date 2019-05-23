@@ -33,7 +33,7 @@ namespace rsocket {
 //
 
 template <typename T>
-class ScheduledSubscriber : public yarpl::flowable::Subscriber<T> {
+class ScheduledSubscriber : public yarpl::flowable::Subscriber<T>, public scapix::bridge::object<ScheduledSubscriber> {
  public:
   ScheduledSubscriber(
       std::shared_ptr<yarpl::flowable::Subscriber<T>> inner,
@@ -98,7 +98,7 @@ class ScheduledSubscriber : public yarpl::flowable::Subscriber<T> {
 // request and cancel from any thread.
 //
 template <typename T>
-class ScheduledSubscriptionSubscriber : public yarpl::flowable::Subscriber<T> {
+class ScheduledSubscriptionSubscriber : public yarpl::flowable::Subscriber<T>,  public scapix::bridge::object<ScheduledSubscriptionSubscriber>{
  public:
   ScheduledSubscriptionSubscriber(
       std::shared_ptr<yarpl::flowable::Subscriber<T>> inner,

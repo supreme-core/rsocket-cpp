@@ -24,7 +24,7 @@
 namespace rsocket {
 
 // Refer to FrameTransportImpl for documentation on the implementation
-class FrameTransport {
+class FrameTransport : public scapix::bridge::object<FrameTransport> {
  public:
   virtual ~FrameTransport() = default;
   virtual void setFrameProcessor(std::shared_ptr<FrameProcessor>) = 0;

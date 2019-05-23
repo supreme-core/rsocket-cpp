@@ -51,7 +51,7 @@ class RSocketStats;
 class ResumeManager;
 class RSocketStateMachineTest;
 
-class FrameSink {
+class FrameSink : public scapix::bridge::object<FrameSink> {
  public:
   virtual ~FrameSink() = default;
 

@@ -55,7 +55,7 @@ class TcpConnectionFactory : public ConnectionFactory {
 
   static std::unique_ptr<DuplexConnection> createDuplexConnectionFromSocket(
       folly::AsyncTransportWrapper::UniquePtr socket,
-      std::shared_ptr<RSocketStats> stats = std::shared_ptr<RSocketStats>());
+      std::shared_ptr<RSocketStats> stats = std::make_shared<RSocketStats>());
 
  private:
   folly::EventBase* eventBase_;

@@ -20,7 +20,7 @@
 
 namespace rsocket {
 
-class RSocketException : public std::runtime_error {
+class RSocketException : public std::runtime_error, public scapix::bridge::object<RSocketException> {
   using std::runtime_error::runtime_error;
 };
 

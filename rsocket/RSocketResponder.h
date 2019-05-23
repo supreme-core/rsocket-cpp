@@ -23,7 +23,7 @@
 
 namespace rsocket {
 
-class RSocketResponderCore {
+class RSocketResponderCore : public scapix::bridge::object<RSocketResponderCore> {
  public:
   virtual ~RSocketResponderCore() = default;
 
@@ -68,7 +68,7 @@ class RSocketResponderCore {
  * See https://github.com/rsocket/rsocket/blob/master/Protocol.md#terminology
  * for more information on how this fits into the RSocket protocol terminology.
  */
-class RSocketResponder {
+class RSocketResponder : public scapix::bridge::object<RSocketResponder> {
  public:
   virtual ~RSocketResponder() = default;
 

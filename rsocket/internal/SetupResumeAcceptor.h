@@ -40,7 +40,7 @@ namespace rsocket {
 ///
 /// An instance of this class must be tied to a specific thread, as the
 /// SetupResumeAcceptor::accept() entry point is not thread-safe.
-class SetupResumeAcceptor final {
+class SetupResumeAcceptor final : public scapix::bridge::object<SetupResumeAcceptor> {
  public:
   using OnSetup = folly::Function<
       void(std::unique_ptr<DuplexConnection>, SetupParameters) noexcept>;

@@ -28,7 +28,7 @@ namespace rsocket {
 // A decorator of the SingleSubscription object which schedules the method calls
 // on the provided EventBase
 //
-class ScheduledSingleSubscription : public yarpl::single::SingleSubscription {
+class ScheduledSingleSubscription : public yarpl::single::SingleSubscription, public scapix::bridge::object<ScheduledSingleSubscription> {
  public:
   ScheduledSingleSubscription(
       std::shared_ptr<yarpl::single::SingleSubscription> inner,

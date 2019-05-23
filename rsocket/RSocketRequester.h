@@ -45,7 +45,7 @@ namespace rsocket {
  * See https://github.com/rsocket/rsocket/blob/master/Protocol.md#terminology
  * for more information on how this fits into the RSocket protocol terminology.
  */
-class RSocketRequester {
+class RSocketRequester : public scapix::bridge::object<RSocketRequester> {
  public:
   RSocketRequester(
       std::shared_ptr<rsocket::RSocketStateMachine> srs,

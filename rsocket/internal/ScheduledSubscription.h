@@ -24,7 +24,7 @@ namespace rsocket {
 
 // A wrapper over Subscription that schedules all of the subscription's methods
 // on an EventBase.
-class ScheduledSubscription : public yarpl::flowable::Subscription {
+class ScheduledSubscription : public yarpl::flowable::Subscription, public scapix::bridge::object<ScheduledSubscription> {
  public:
   ScheduledSubscription(
       std::shared_ptr<yarpl::flowable::Subscription>,

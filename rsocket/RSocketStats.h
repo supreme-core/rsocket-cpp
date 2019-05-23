@@ -28,7 +28,7 @@ namespace rsocket {
 
 class DuplexConnection;
 
-class RSocketStats {
+class RSocketStats : public scapix::bridge::object<RSocketStats> {
  public:
   enum class ResumeOutcome { SUCCESS, FAILURE };
 

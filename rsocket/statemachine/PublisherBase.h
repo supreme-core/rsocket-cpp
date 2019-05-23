@@ -22,7 +22,7 @@
 namespace rsocket {
 
 /// A class that represents a flow-control-aware producer of data.
-class PublisherBase {
+class PublisherBase : public scapix::bridge::object<PublisherBase> {
  public:
   explicit PublisherBase(uint32_t initialRequestN);
 

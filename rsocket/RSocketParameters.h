@@ -29,7 +29,7 @@ namespace rsocket {
 using OnRSocketResume =
     std::function<bool(std::vector<StreamId>, std::vector<StreamId>)>;
 
-class RSocketParameters {
+class RSocketParameters : public scapix::bridge::object<RSocketParameters> {
  public:
   RSocketParameters(bool resume, ProtocolVersion version)
       : resumable{resume}, protocolVersion{std::move(version)} {}

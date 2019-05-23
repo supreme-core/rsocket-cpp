@@ -65,7 +65,7 @@ using StreamResumeInfos = std::unordered_map<StreamId, StreamResumeInfo>;
 // - isPositionAvailable would return true for the values [150, 250, 350].
 // - firstSentPosition() would return 150
 // - lastSentPosition() would return 350
-class ResumeManager {
+class ResumeManager : public scapix::bridge::object<ResumeManager> {
  public:
   static std::shared_ptr<ResumeManager> makeEmpty();
 

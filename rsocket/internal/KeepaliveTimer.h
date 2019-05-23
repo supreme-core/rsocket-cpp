@@ -22,7 +22,7 @@
 
 namespace rsocket {
 
-class KeepaliveTimer {
+class KeepaliveTimer : public scapix::bridge::object<KeepaliveTimer> {
  public:
   KeepaliveTimer(std::chrono::milliseconds period, folly::EventBase& eventBase);
 

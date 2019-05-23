@@ -25,7 +25,7 @@
 namespace rsocket {
 
 /// Header that begins every RSocket frame.
-class FrameHeader {
+class FrameHeader : public scapix::bridge::object<FrameHeader>{
  public:
   FrameHeader() {}
 

@@ -24,7 +24,7 @@ namespace rsocket {
 
 // The application should implement this interface to get called-back
 // on network events.
-class RSocketConnectionEvents {
+class RSocketConnectionEvents : public scapix::bridge::object<RSocketConnectionEvents> {
  public:
   virtual ~RSocketConnectionEvents() = default;
 

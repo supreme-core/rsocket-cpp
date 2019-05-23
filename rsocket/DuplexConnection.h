@@ -39,7 +39,7 @@ namespace rsocket {
 /// It can be assumed that both input and output will be closed by sending
 /// appropriate terminal signals (according to ReactiveStreams specification)
 /// before the connection is destroyed.
-class DuplexConnection {
+class DuplexConnection : public scapix::bridge::object<DuplexConnection>  {
  public:
   using Subscriber = yarpl::flowable::Subscriber<std::unique_ptr<folly::IOBuf>>;
 

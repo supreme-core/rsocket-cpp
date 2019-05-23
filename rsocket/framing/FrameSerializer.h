@@ -25,7 +25,7 @@
 namespace rsocket {
 
 // interface separating serialization/deserialization of ReactiveSocket frames
-class FrameSerializer {
+class FrameSerializer : public scapix::bridge::object<FrameSerializer>  {
  public:
   virtual ~FrameSerializer() = default;
 

@@ -38,7 +38,7 @@ using OnDuplexConnectionAccept = std::function<
  * Built-in implementations can be found in rsocket/transports/, such as
  * rsocket/transports/TcpConnectionAcceptor.h
  */
-class ConnectionAcceptor {
+class ConnectionAcceptor : public scapix::bridge::object<ConnectionAcceptor> {
  public:
   ConnectionAcceptor() = default;
   virtual ~ConnectionAcceptor() = default;
