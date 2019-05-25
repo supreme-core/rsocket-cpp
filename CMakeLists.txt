@@ -516,7 +516,7 @@ target_include_directories(
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
         $<INSTALL_INTERFACE:include>
-        ${Boost_INCLUDE_DIRS}
+        $<BUILD_INTERFACE:${Boost_INCLUDE_DIRS}>
 )
 
 target_link_libraries(ReactiveSocket
