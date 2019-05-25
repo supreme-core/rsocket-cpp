@@ -490,7 +490,7 @@ add_library(
   rsocket/transports/tcp/TcpDuplexConnection.cpp
   rsocket/transports/tcp/TcpDuplexConnection.h
   ${platform_sources}
-  ${LIBRARY_TYPE})
+  )
 
 # -------------------- @@ scapix
 # https://github.com/ruslo/hunter/issues/542
