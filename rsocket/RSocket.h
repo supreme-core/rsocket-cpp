@@ -24,7 +24,7 @@ namespace rsocket {
 /**
  * Main entry to creating RSocket clients and servers.
  */
-class RSocket : public scapix::brdige::object<RSocket> {
+class RSocket : public scapix::bridge::object<RSocket> {
  public:
   // Creates a RSocketClient which is connected to the remoteside.
   // keepaliveInterval of 0 will result in no keepAlives
@@ -39,7 +39,7 @@ class RSocket : public scapix::brdige::object<RSocket> {
           std::shared_ptr<RSocketConnectionEvents>(),
       std::shared_ptr<ResumeManager> resumeManager = ResumeManager::makeEmpty(),
       std::shared_ptr<ColdResumeHandler> coldResumeHandler =
-          std::make_shared<ColdResumeHandler>(),
+          std::shared_ptr<ColdResumeHandler>(),
       folly::EventBase* stateMachineEvb = nullptr);
 
   // Creates a RSocketClient which cold-resumes from the provided state

@@ -31,7 +31,7 @@ class RSocketStats;
 class FrameSerializer;
 
 /// The interface for writing stream related frames on the wire.
-class StreamsWriter : public scapix::bridge::object<StreamWriter> {
+class StreamsWriter : public scapix::bridge::object<StreamsWriter> {
  public:
   virtual ~StreamsWriter() = default;
 

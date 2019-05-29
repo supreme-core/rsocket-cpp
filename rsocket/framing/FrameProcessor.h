@@ -21,7 +21,7 @@
 
 namespace rsocket {
 
-class FrameProcessor : public scapix::brdige::object<FrameProcessor> {
+class FrameProcessor : public scapix::bridge::object<FrameProcessor> {
  public:
   virtual ~FrameProcessor() = default;
 
