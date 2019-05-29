@@ -191,7 +191,13 @@ enable_testing()
 include(ExternalProject)
 include(CTest)
 
-include(${CMAKE_SOURCE_DIR}/cmake/InstallFolly.cmake)
+#include(${CMAKE_SOURCE_DIR}/cmake/InstallFolly.cmake)
+hunter_add_package(folly)
+hunter_add_package(openssl)
+hunter_add_package(libevent)
+find_package(Threads)
+find_package(folly CONFIG REQUIRED)
+link_libraries(PUBLIC Folly::folly)
 
 if(BUILD_TESTS)
   # gmock
@@ -601,7 +607,7 @@ enable_testing()
 
 install(TARGETS ReactiveSocket EXPORT rsocket-exports DESTINATION lib)
 install(DIRECTORY rsocket DESTINATION include FILES_MATCHING PATTERN "*.h")
-install(EXPORT rsocket-exports NAMESPACE rsocket:: DESTINATION lib/cmake/rsocket)
+#install(EXPORT rsocket-exports NAMESPACE rsocket:: DESTINATION lib/cmake/rsocket)
 include(CMakePackageConfigHelpers)
 configure_package_config_file(
     cmake/rsocket-config.cmake.in
