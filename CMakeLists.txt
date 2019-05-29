@@ -2,6 +2,14 @@ cmake_minimum_required(VERSION 3.2)
 
 # ------------- SCAPIX Hunter dependency ----------------
 
+set(
+    CMAKE_TOOLCHAIN_FILE
+    "${CMAKE_CURRENT_LIST_DIR}/cmake/cxx17.cmake"
+    CACHE
+    FILEPATH
+    "Default toolchain"
+)
+
 # set the PROJECT_ROOT to folder path where makefile is located
 set(PROJECT_ROOT ${CMAKE_SOURCE_DIR})
 
@@ -191,13 +199,13 @@ enable_testing()
 include(ExternalProject)
 include(CTest)
 
-#include(${CMAKE_SOURCE_DIR}/cmake/InstallFolly.cmake)
-hunter_add_package(folly)
-hunter_add_package(openssl)
-hunter_add_package(libevent)
-find_package(Threads)
-find_package(folly CONFIG REQUIRED)
-link_libraries(PUBLIC Folly::folly)
+include(${CMAKE_SOURCE_DIR}/cmake/InstallFolly.cmake)
+#hunter_add_package(folly)
+#hunter_add_package(openssl)
+#hunter_add_package(libevent)
+#find_package(Threads)
+#find_package(folly CONFIG REQUIRED)
+#link_libraries(PUBLIC Folly::folly)
 
 if(BUILD_TESTS)
   # gmock
@@ -221,8 +229,6 @@ if(BUILD_TESTS)
   include_directories(${GMOCK_SOURCE_DIR}/googletest/include)
 
 endif()
-
-set(CMAKE_CXX_STANDARD 14)
 
 include(CheckCXXCompilerFlag)
 
@@ -569,11 +575,11 @@ scapix_bridge_headers(
         "${PROJECT_ROOT}/rsocket/internal/ClientResumeStatusCallback.h"
         "${PROJECT_ROOT}/rsocket/internal/Common.h"
         "${PROJECT_ROOT}/rsocket/internal/ConnectionSet.h"
-        "${PROJECT_ROOT}/rsocket/internal/KeepaliveTimer.h"
+#       "${PROJECT_ROOT}/rsocket/internal/KeepaliveTimer.h"
         "${PROJECT_ROOT}/rsocket/internal/ScheduledRSocketResponder.h"
-        "${PROJECT_ROOT}/rsocket/internal/ScheduledSingleObserver.h"
+#       "${PROJECT_ROOT}/rsocket/internal/ScheduledSingleObserver.h"
         "${PROJECT_ROOT}/rsocket/internal/ScheduledSingleSubscription.h"
-        "${PROJECT_ROOT}/rsocket/internal/ScheduledSubscriber.h"
+#       "${PROJECT_ROOT}/rsocket/internal/ScheduledSubscriber.h"
         "${PROJECT_ROOT}/rsocket/internal/ScheduledSubscription.h"
         "${PROJECT_ROOT}/rsocket/internal/SetupResumeAcceptor.h"
         "${PROJECT_ROOT}/rsocket/internal/SwappableEventBase.h"
@@ -583,7 +589,7 @@ scapix_bridge_headers(
         "${PROJECT_ROOT}/rsocket/statemachine/ConsumerBase.h"
         "${PROJECT_ROOT}/rsocket/statemachine/FireAndForgetResponder.h"
         "${PROJECT_ROOT}/rsocket/statemachine/PublisherBase.h"
-        "${PROJECT_ROOT}/rsocket/statemachine/RSocketStateMachine.h"
+#       "${PROJECT_ROOT}/rsocket/statemachine/RSocketStateMachine.h"
         "${PROJECT_ROOT}/rsocket/statemachine/RequestResponseRequester.h"
         "${PROJECT_ROOT}/rsocket/statemachine/RequestResponseResponder.h"
         "${PROJECT_ROOT}/rsocket/statemachine/StreamRequester.h"

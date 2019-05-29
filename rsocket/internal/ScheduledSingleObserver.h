@@ -32,7 +32,7 @@ namespace rsocket {
 // scheduled on the right EventBase.
 //
 template <typename T>
-class ScheduledSingleObserver : public yarpl::single::SingleObserver<T>, public scapix::bridge::object<ScheduledSingleObserver> {
+class ScheduledSingleObserver : public yarpl::single::SingleObserver<T>, public scapix::bridge::object<ScheduledSingleObserver<T>> {
  public:
   ScheduledSingleObserver(
       std::shared_ptr<yarpl::single::SingleObserver<T>> observer,
@@ -88,7 +88,7 @@ class ScheduledSingleObserver : public yarpl::single::SingleObserver<T>, public 
 //
 template <typename T>
 class ScheduledSubscriptionSingleObserver
-    : public yarpl::single::SingleObserver<T>, public scapix::bridge::object<ScheduledSubscriptionSingleObserver> {
+    : public yarpl::single::SingleObserver<T>, public scapix::bridge::object<ScheduledSubscriptionSingleObserver<T>> {
  public:
   ScheduledSubscriptionSingleObserver(
       std::shared_ptr<yarpl::single::SingleObserver<T>> observer,
