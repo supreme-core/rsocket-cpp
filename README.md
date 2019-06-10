@@ -52,7 +52,7 @@ cmake ..
 make -j $(nproc)
 make install # with either sudo or DESTDIR as necessary
 ```
-Note: GCC compile use to build Folly should be the same as the compiler to build Scapix
+Note: GCC compiler use for building Folly should be the same as the compiler to build Scapix
 
 # STEPS TO COMPILE
 
