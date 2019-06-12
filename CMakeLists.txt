@@ -245,7 +245,7 @@ if (COMPILER_HAS_W_NOEXCEPT_TYPE)
 endif()
 
 if (NOT MSVC)
-  set(EXTRA_CXX_FLAGS ${EXTRA_CXX_FLAGS} -Werror)
+  set(EXTRA_CXX_FLAGS ${EXTRA_CXX_FLAGS} -Werror -Wno-error=unused-parameter)
 endif()
 
 if("${BUILD_TYPE_LOWER}" MATCHES "debug")
@@ -540,7 +540,7 @@ scapix_bridge_headers(
         ReactiveSocket
         "com.scapix.ReactiveSocket"
         "${PROJECT_ROOT}/rsocket/ColdResumeHandler.h"
-        "${PROJECT_ROOT}/rsocket/ConnectionAcceptor.h"
+#       "${PROJECT_ROOT}/rsocket/ConnectionAcceptor.h"
         "${PROJECT_ROOT}/rsocket/ConnectionFactory.h"
         "${PROJECT_ROOT}/rsocket/DuplexConnection.h"
         "${PROJECT_ROOT}/rsocket/Payload.h"
@@ -575,11 +575,11 @@ scapix_bridge_headers(
         "${PROJECT_ROOT}/rsocket/internal/ClientResumeStatusCallback.h"
         "${PROJECT_ROOT}/rsocket/internal/Common.h"
         "${PROJECT_ROOT}/rsocket/internal/ConnectionSet.h"
-#       "${PROJECT_ROOT}/rsocket/internal/KeepaliveTimer.h"
+        "${PROJECT_ROOT}/rsocket/internal/KeepaliveTimer.h"
         "${PROJECT_ROOT}/rsocket/internal/ScheduledRSocketResponder.h"
-#       "${PROJECT_ROOT}/rsocket/internal/ScheduledSingleObserver.h"
+        "${PROJECT_ROOT}/rsocket/internal/ScheduledSingleObserver.h"
         "${PROJECT_ROOT}/rsocket/internal/ScheduledSingleSubscription.h"
-#       "${PROJECT_ROOT}/rsocket/internal/ScheduledSubscriber.h"
+        "${PROJECT_ROOT}/rsocket/internal/ScheduledSubscriber.h"
         "${PROJECT_ROOT}/rsocket/internal/ScheduledSubscription.h"
         "${PROJECT_ROOT}/rsocket/internal/SetupResumeAcceptor.h"
         "${PROJECT_ROOT}/rsocket/internal/SwappableEventBase.h"
@@ -589,7 +589,7 @@ scapix_bridge_headers(
         "${PROJECT_ROOT}/rsocket/statemachine/ConsumerBase.h"
         "${PROJECT_ROOT}/rsocket/statemachine/FireAndForgetResponder.h"
         "${PROJECT_ROOT}/rsocket/statemachine/PublisherBase.h"
-#       "${PROJECT_ROOT}/rsocket/statemachine/RSocketStateMachine.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/RSocketStateMachine.h"
         "${PROJECT_ROOT}/rsocket/statemachine/RequestResponseRequester.h"
         "${PROJECT_ROOT}/rsocket/statemachine/RequestResponseResponder.h"
         "${PROJECT_ROOT}/rsocket/statemachine/StreamRequester.h"
