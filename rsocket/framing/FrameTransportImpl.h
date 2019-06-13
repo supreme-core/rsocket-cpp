@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef FrameTransportImpl_H
+#define FrameTransportImpl_H
+#endif
+
+
 
 #include <folly/ExceptionWrapper.h>
 #include "rsocket/DuplexConnection.h"

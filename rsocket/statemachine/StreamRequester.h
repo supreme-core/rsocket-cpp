@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef StreamRequester_H
+#define StreamRequester_H
+#endif
 
 #include "rsocket/statemachine/ConsumerBase.h"
 #include <scapix/bridge/object.h>

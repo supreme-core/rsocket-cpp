@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef ColdResumeManager_H
+#define ColdResumeManager_H
+#endif
+
 
 #include "rsocket/internal/WarmResumeManager.h"
 

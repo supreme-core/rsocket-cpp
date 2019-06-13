@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef HelloServiceHandler_H
+#define HelloServiceHandler_H
+#endif
+
+
 
 #include <map>
 #include "rsocket/RSocketServiceHandler.h"

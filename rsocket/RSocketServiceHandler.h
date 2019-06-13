@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef RSocketServiceHandler_H
+#define RSocketServiceHandler_H
+#endif
+
+
 
 #include <folly/Expected.h>
 

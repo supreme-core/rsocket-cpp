@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef TestInterpreter_H
+#define TestInterpreter_H
+#endif
 
 #include <map>
 

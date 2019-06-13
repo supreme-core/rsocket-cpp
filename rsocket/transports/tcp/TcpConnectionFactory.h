@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef TcpConnectionFactory_H
+#define TcpConnectionFactory_H
+#endif
 
 #include <folly/SocketAddress.h>
 #include <folly/io/async/AsyncTransport.h>

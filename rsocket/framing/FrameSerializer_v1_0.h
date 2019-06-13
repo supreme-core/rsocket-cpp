@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef FrameSerializer_v1_0_H
+#define FrameSerializer_v1_0_H
+#endif
+
 
 #include "rsocket/framing/FrameSerializer.h"
 #include <scapix/bridge/object.h>

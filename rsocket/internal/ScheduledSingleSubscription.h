@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef ScheduledSingleSubscription_H
+#define ScheduledSingleSubscription_H
+#endif
+
 
 #include "yarpl/single/SingleSubscription.h"
 #include <scapix/bridge/object.h>

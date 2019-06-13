@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef ChannelRequester_H
+#define ChannelRequester_H
+#endif
+
 
 #include "rsocket/Payload.h"
 #include "rsocket/statemachine/ConsumerBase.h"

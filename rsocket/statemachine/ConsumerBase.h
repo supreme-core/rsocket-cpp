@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef ConsumerBase_H
+#define ConsumerBase_H
+#endif
 
 #include "rsocket/Payload.h"
 #include "rsocket/internal/Allowance.h"

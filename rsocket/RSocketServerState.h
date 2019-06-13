@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef RSocketServerState_H
+#define RSocketServerState_H
+#endif
+
+
 
 #include "rsocket/RSocketRequester.h"
 #include <scapix/bridge/object.h>

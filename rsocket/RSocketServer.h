@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef RSocketServer_H
+#define RSocketServer_H
+#endif
+
+
 
 #include <mutex>
 

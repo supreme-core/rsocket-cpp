@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef ConnectionFactory_H
+#define ConnectionFactory_H
+#endif
+
+
 
 #include <folly/Function.h>
 #include <folly/futures/Future.h>

@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef ResumeIdentificationToken_H
+#define ResumeIdentificationToken_H
+#endif
+
+
 
 #include <cstdint>
 #include <iosfwd>

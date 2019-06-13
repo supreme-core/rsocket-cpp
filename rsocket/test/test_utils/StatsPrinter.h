@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef StatsPrinter_H
+#define StatsPrinter_H
+#endif
+
+
 
 #include "rsocket/DuplexConnection.h"
 #include "rsocket/RSocketStats.h"

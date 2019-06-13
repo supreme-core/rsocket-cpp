@@ -12,7 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef FramedReader_H
+#define FramedReader_H
+#endif
+
+
 
 #include <folly/io/IOBufQueue.h>
 

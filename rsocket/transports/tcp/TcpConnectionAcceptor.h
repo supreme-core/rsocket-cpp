@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef TcpConnectionAcceptor_H
+#define TcpConnectionAcceptor_H
+#endif
 
 #include <folly/io/async/AsyncServerSocket.h>
 #include <folly/io/async/ScopedEventBaseThread.h>

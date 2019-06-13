@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef RSocketRequester_H
+#define RSocketRequester_H
+#endif
+
+
 
 #include <folly/io/async/EventBase.h>
 

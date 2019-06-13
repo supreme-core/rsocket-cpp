@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef StreamFragmentAccumulator_H
+#define StreamFragmentAccumulator_H
+#endif
 
 #include "rsocket/Payload.h"
 #include <scapix/bridge/object.h>

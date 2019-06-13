@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef Framer_H
+#define Framer_H
+#endif
+
+
 
 #include <folly/io/IOBufQueue.h>
 #include "rsocket/framing/ProtocolVersion.h"

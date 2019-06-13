@@ -12,7 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef FrameProcessor_H
+#define FrameProcessor_H
+#endif
+
+
 
 #include <folly/ExceptionWrapper.h>
 #include <folly/io/IOBuf.h>

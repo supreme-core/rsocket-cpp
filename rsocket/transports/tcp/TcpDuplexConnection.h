@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef TcpDuplexConnection_H
+#define TcpDuplexConnection_H
+#endif
+
 
 #include <boost/smart_ptr/intrusive_ptr.hpp>
 #include <folly/io/async/AsyncSocket.h>

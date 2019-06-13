@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef ChannelResponder_H
+#define ChannelResponder_H
+#endif
+
+
 
 #include "rsocket/statemachine/ConsumerBase.h"
 #include "rsocket/statemachine/PublisherBase.h"

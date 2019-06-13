@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef PrintSubscriber_H
+#define PrintSubscriber_H
+#endif
+
+
 
 #include "rsocket/Payload.h"
 #include "yarpl/flowable/Subscriber.h"

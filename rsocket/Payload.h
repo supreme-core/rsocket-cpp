@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef Payload_H
+#define Payload_H
+#endif
+
+
 
 #include <folly/io/IOBuf.h>
 #include <memory>

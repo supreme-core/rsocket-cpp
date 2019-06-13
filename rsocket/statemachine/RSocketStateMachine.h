@@ -12,7 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef RSocketStateMachine_H
+#define RSocketStateMachine_H
+#endif
+
+
+
 
 #include <deque>
 #include <memory>

@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef RSocketException_H
+#define RSocketException_H
+#endif
+
+
 
 #include <stdexcept>
 #include <scapix/bridge/object.h>

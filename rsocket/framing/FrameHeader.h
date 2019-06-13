@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef FrameHeader_H
+#define FrameHeader_H
+#endif
+
+
 
 #include <iosfwd>
 

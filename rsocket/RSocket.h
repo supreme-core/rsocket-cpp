@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef RSocket_H
+#define RSocket_H
+#endif
+
 
 #include "rsocket/RSocketClient.h"
 #include "rsocket/RSocketServer.h"

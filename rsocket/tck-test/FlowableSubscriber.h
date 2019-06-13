@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef FlowableSubscriber_H
+#define FlowableSubscriber_H
+#endif
+
 
 #include "rsocket/tck-test/BaseSubscriber.h"
 

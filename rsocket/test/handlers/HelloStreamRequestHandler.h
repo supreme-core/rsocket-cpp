@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef HelloStreamRequestHandler_H
+#define HelloStreamRequestHandler_H
+#endif
+
+
 
 #include "rsocket/RSocketResponder.h"
 #include "yarpl/Flowable.h"

@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef ColdResumeHandler_H
+#define ColdResumeHandler_H
+#endif
+
+
 
 #include "yarpl/Flowable.h"
 

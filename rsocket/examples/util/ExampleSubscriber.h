@@ -12,7 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef ExampleSubscriber_H
+#define ExampleSubscriber_H
+#endif
+
+
+
 
 #include <folly/ExceptionWrapper.h>
 #include <condition_variable>

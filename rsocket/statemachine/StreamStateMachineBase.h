@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+
+#ifndef StreamStateMachineBase_H
+#define StreamStateMachineBase_H
+#endif
 
 #include <folly/ExceptionWrapper.h>
 

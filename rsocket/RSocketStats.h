@@ -12,7 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+//#pragma once
+#ifndef RSocketStats_H
+#define RSocketStats_H
+#endif
+
+
 
 #include <folly/Optional.h>
 #include <cstdint>
