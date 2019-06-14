@@ -54,6 +54,9 @@ set(CMAKE_MODULE_PATH
 
 # ----------- SCAPIX --------
 
+# we are building shared library
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 set(SCAPIX_BRIDGE "python" CACHE STRING "cpp, java, objc, python")
 set(SCAPIX_PLATFORM "linux" CACHE STRING "one of the folders inside 'rsocket/platform': ios, android, macos, windows, linux, etc.")
 
@@ -389,8 +392,9 @@ set(RSocket_Sources
     rsocket/transports/tcp/TcpDuplexConnection.h)
 
 # @@ SCAPIX - add ${platform_soures}, ${LIBRARY_TYPE} at the end
+
 add_library(
-  ReactiveSocket
+  ReactiveSocket MODULE
   rsocket/ColdResumeHandler.cpp
   rsocket/ColdResumeHandler.h
   rsocket/ConnectionAcceptor.h
