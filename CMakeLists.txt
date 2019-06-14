@@ -203,10 +203,10 @@ include(ExternalProject)
 include(CTest)
 
 include(${CMAKE_SOURCE_DIR}/cmake/InstallFolly.cmake)
+
+# hunter folly is too old
 #hunter_add_package(folly)
-#hunter_add_package(openssl)
-#hunter_add_package(libevent)
-#find_package(Threads)
+#hunter_add_package(Libevent)
 #find_package(folly CONFIG REQUIRED)
 #link_libraries(PUBLIC Folly::folly)
 
