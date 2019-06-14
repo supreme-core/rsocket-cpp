@@ -47,8 +47,8 @@ sudo apt-get install libaio1
 ```
 git clone https://github.com/facebook/folly
 cd folly
-mkdir _build && cd _build
-cmake ..
+cmake -B _build -DFOLLY_USE_JEMALLOC=0 -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true
+cd _build
 make -j $(nproc)
 make install # with either sudo or DESTDIR as necessary
 ```
