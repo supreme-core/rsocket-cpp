@@ -248,7 +248,7 @@ if (COMPILER_HAS_W_NOEXCEPT_TYPE)
 endif()
 
 if (NOT MSVC)
-  set(EXTRA_CXX_FLAGS ${EXTRA_CXX_FLAGS} -Werror -Wno-error=unused-parameter)
+  set(EXTRA_CXX_FLAGS ${EXTRA_CXX_FLAGS} -Werror -Wno-error=unused-parameter -Wno-error=deprecated-declarations)
 endif()
 
 if("${BUILD_TYPE_LOWER}" MATCHES "debug")
@@ -588,9 +588,10 @@ scapix_bridge_headers(
         "${PROJECT_ROOT}/rsocket/internal/SetupResumeAcceptor.h"
         "${PROJECT_ROOT}/rsocket/internal/SwappableEventBase.h"
         "${PROJECT_ROOT}/rsocket/internal/WarmResumeManager.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/StreamStateMachineBase.h"
+        "${PROJECT_ROOT}/rsocket/statemachine/ConsumerBase.h"
         "${PROJECT_ROOT}/rsocket/statemachine/ChannelRequester.h"
         "${PROJECT_ROOT}/rsocket/statemachine/ChannelResponder.h"
-        "${PROJECT_ROOT}/rsocket/statemachine/ConsumerBase.h"
         "${PROJECT_ROOT}/rsocket/statemachine/FireAndForgetResponder.h"
         "${PROJECT_ROOT}/rsocket/statemachine/PublisherBase.h"
 #       "${PROJECT_ROOT}/rsocket/statemachine/RSocketStateMachine.h"
@@ -598,7 +599,6 @@ scapix_bridge_headers(
         "${PROJECT_ROOT}/rsocket/statemachine/RequestResponseResponder.h"
         "${PROJECT_ROOT}/rsocket/statemachine/StreamRequester.h"
         "${PROJECT_ROOT}/rsocket/statemachine/StreamResponder.h"
-        "${PROJECT_ROOT}/rsocket/statemachine/StreamStateMachineBase.h"
         "${PROJECT_ROOT}/rsocket/statemachine/StreamFragmentAccumulator.h"
 #       "${PROJECT_ROOT}/rsocket/statemachine/StreamsWriter.h"
         "${PROJECT_ROOT}/rsocket/transports/tcp/TcpConnectionAcceptor.h"
