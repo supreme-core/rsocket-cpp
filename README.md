@@ -41,6 +41,13 @@ sudo apt-get install libelf-dev libdwarf-dev
 sudo apt-get install libaio1
 ```
 
+# Setting Compilers
+Ideally set it to GCC 7 or 8
+
+```
+sudo update-alternatives --config gcc
+sudo update-alternatives --config g++
+```
 
 # Build Folly
 
